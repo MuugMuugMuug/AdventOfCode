@@ -30,25 +30,24 @@ queue = []
 for ii, c in enumerate(seeds[0:int(len(seeds)/2)]):
   queue.append([seeds[ii*2], seeds[ii*2+1]])
 
-mapped_seeds = []
 for m in maps:
   ii = 0
   mapped = []
-  while ii < len(queue) and ii < 20:
+  while ii < len(queue):
     c = queue[ii]
-    sr_max = c[0] + c[1] - 1
+    c_max = c[0] + c[1] - 1
     is_mapped = False
     for l in m:
-      mp_max = l[1] + l[2] - 1
-      if sr_max >= l[1] and c[0] <= mp_max:
+      l_max = l[1] + l[2] - 1
+      if c_max >= l[1] and c[0] <= l_max:
         is_mapped = True
         start = max([c[0],l[1]])
-        rng = min([sr_max, mp_max]) - start + 1
+        rng = min([c_max, l_max]) - start + 1
         mapped.append([start +l[0] - l[1], rng])
         if c[0] < l[1]: 
           queue.append([c[0], l[1] - c[0]])
-        if sr_max > mp_max:
-          queue.append([mp_max + 1, sr_max - mp_max])
+        if c_max > l_max:
+          queue.append([l_max + 1, c_max - l_max])
         break
     if not is_mapped:
       mapped.append(c)
