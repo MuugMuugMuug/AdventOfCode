@@ -1,6 +1,7 @@
 from functools import reduce
+from math import ceil, floor
 
-with open('input.txt', 'r') as file:
+with open('test.txt', 'r') as file:
   data = [line.rstrip('\n') for line in file.readlines()]
 
 times = [int(x) for x in data[0].split(':')[1].split()]
@@ -28,4 +29,14 @@ for v in range(time+1):
   if dist > distance:
     wins += 1
 
+print(wins)
+
+# more elegant
+# quadratic eqation -x**2 + b * x + c
+# c is -1 * distance to beat, b is length of the race, x is how long you press the button
+# discriminant = b**2 - 4 * a * c
+d = time**2 - 4 * distance
+x1 = (-1*time + d**0.5) / -2
+x2 = (-1*time - d**0.5) / -2
+wins = floor(x2) - ceil(x1) + 1
 print(wins)
