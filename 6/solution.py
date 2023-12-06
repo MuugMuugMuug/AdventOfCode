@@ -1,7 +1,7 @@
 from functools import reduce
 from math import ceil, floor
 
-with open('test.txt', 'r') as file:
+with open('input.txt', 'r') as file:
   data = [line.rstrip('\n') for line in file.readlines()]
 
 times = [int(x) for x in data[0].split(':')[1].split()]
