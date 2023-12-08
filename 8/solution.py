@@ -29,17 +29,13 @@ def find_lcm_of_list(numbers):
         lcm = lcm * num // math.gcd(lcm, num)
     return lcm
 
-
 lr = [lr_map[x] for x in data[0]]
-
 
 network = {x.split('=')[0].strip(): x.split('=')[1].replace(')', "").replace('(', "").strip().split(', ') for x in data[2:]}
 keys = [key for key in network if key[2] == 'A']
 
 s = []
 exit_found = False
-
-
 
 for ii, key in enumerate(keys):
   steps = 0
@@ -51,7 +47,5 @@ for ii, key in enumerate(keys):
     if key[2] == 'Z':
       s.append(steps)
       found_exit = True
-
-  
 
 print(find_lcm_of_list(s))
