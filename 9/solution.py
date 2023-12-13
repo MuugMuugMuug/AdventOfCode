@@ -5,7 +5,6 @@ with open('input.txt', 'r') as file:
 
 histories = [[int(x) for x in row.split()] for row in data]
 
-
 # solve a and b
 next_values = []
 prev_values = []
@@ -25,4 +24,3 @@ for hist in histories:
 
 print(sum(next_values))
 print(sum(prev_values))
-
