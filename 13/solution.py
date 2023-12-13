@@ -1,5 +1,5 @@
 import numpy as np
-from math import floor, ceil
+from math import ceil
 
 with open('input.txt', 'r') as file:
   data = [line.rstrip('\n') for line in file.readlines()]
@@ -28,7 +28,7 @@ def get_reflection(p):
         matching.append(ii + jj)
   for m in set(matching):
     if expected_amount(m, num_cols) == matching.count(m):
-      r = floor(m/2) + 1
+      r = ceil(m/2)
   return r
 
 acc = 0
