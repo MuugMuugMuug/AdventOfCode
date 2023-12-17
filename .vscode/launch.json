@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Python: day 16",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/16/solution.py",
+      "cwd": "${workspaceFolder}/16",
+      "console": "integratedTerminal"
+    }
+  ]
+}
